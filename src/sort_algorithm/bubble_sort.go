@@ -7,7 +7,7 @@
 
 package sort_algorithm
 
-import "arraytools"
+import "tools/arraytools"
 
 /*
 	经典冒泡排序算法,这个很简单,每次外层遍历就是靠着两两对比,把最大的值冒上去,下一次外层循环忽略掉最后一个值然后便找出了第二大的,如此循环.

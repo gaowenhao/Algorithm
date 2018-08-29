@@ -49,5 +49,6 @@ func GenerateArray(length int) []int {
 // 打印数组
 func PrintArray(array []int) {
 	fmt.Println("前20个数字: ", array[0:20])
-	fmt.Println("后20个数字: ", array[len(array)-20:], "\n")
+	fmt.Println("后20个数字: ", array[len(array)-20:])
+	fmt.Println()
 }

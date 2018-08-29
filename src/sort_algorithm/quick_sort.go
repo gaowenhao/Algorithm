@@ -11,7 +11,7 @@ package sort_algorithm
 	快排也非常容易理解,先二分,然后选择一个对比值,从二分后左面数组中找出大于对比值的,右面数组中找出小于对比值的,交换.而后用分割后的两段数组递归此过程.
 */
 
-import "arraytools"
+import "tools/arraytools"
 
 func QuickSort(array []int, left int, right int) {
 	if right < left {

@@ -7,7 +7,7 @@
 
 package sort_algorithm
 
-import "arraytools"
+import "tools/arraytools"
 
 func HeapSort(array []int) {
 	length := len(array)

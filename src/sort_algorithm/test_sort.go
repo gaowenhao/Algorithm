@@ -8,17 +8,15 @@
 package sort_algorithm
 
 /*
-数组长度：100000
-
 测试快速排序:
-耗时 :  7 ms
+耗时 :  8 ms
 --------------------------------------------------------------------------------------------------
 
 测试归并排序:
-耗时 :  17 ms
+耗时 :  18 ms
 --------------------------------------------------------------------------------------------------
 
-测试堆排序排序:
+测试堆排序:
 耗时 :  18 ms
 --------------------------------------------------------------------------------------------------
 
@@ -27,29 +25,34 @@ package sort_algorithm
 --------------------------------------------------------------------------------------------------
 
 测试基数排序:
-耗时 :  38 ms
+耗时 :  43 ms
 --------------------------------------------------------------------------------------------------
 
 测试插入排序:
-耗时 :  1628 ms
+耗时 :  1877 ms
 --------------------------------------------------------------------------------------------------
 
+测试鸡尾酒排序:
+耗时 :  9051 ms
+--------------------------------------------------------------------------------------------------
+
+
 测试冒泡排序:
-耗时 :  15193 ms
+耗时 :  15713 ms
 --------------------------------------------------------------------------------------------------
 
 测试选择排序:
-耗时 :  15884 ms
+耗时 :  15520 ms
 --------------------------------------------------------------------------------------------------
 */
 
 import (
-	"arraytools"
 	"fmt"
 	"time"
+	"tools/arraytools"
 )
 
-const Print bool = true
+const Print bool = false
 
 func TestBubbleSort(length int) {
 	fmt.Println("测试冒泡排序:")
@@ -305,6 +308,34 @@ func TestHeapSort(length int) {
 	fmt.Println()
 }
 
+func TestCocktailSort(length int) {
+	fmt.Println("测试鸡尾酒排序:")
+
+	array := arraytools.GenerateArray(length)
+
+	if Print {
+		fmt.Println("排序前:")
+		arraytools.PrintArray(array)
+	}
+
+	start := time.Now().UnixNano() / 1e6
+
+	CocktailSort(array)
+
+	end := time.Now().UnixNano() / 1e6
+
+	if Print {
+		fmt.Println("排序后:")
+		arraytools.PrintArray(array)
+	}
+
+	fmt.Println("耗时 : ", end-start, "ms")
+
+	fmt.Println("--------------------------------------------------------------------------------------------------")
+
+	fmt.Println()
+}
+
 // 测试所有的数组
 func TestAllSort(length int) {
 	TestQuickSort(length)
@@ -313,6 +344,7 @@ func TestAllSort(length int) {
 	TestShellSort(length)
 	TestRadixSort(length)
 	TestInsertionSort(length)
+	TestCocktailSort(length)
 	TestBubbleSort(length)
 	TestSelectionSort(length)
 }

@@ -7,8 +7,9 @@
 
 package main
 
-import "number_theory_algorithm"
+import "sort_algorithm"
 
 func main() {
-	number_theory_algorithm.TestErato()
+	sort_algorithm.TestAllSort(100000)
+
 }
