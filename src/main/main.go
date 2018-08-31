@@ -7,9 +7,5 @@
 
 package main
 
-import "sort_algorithm"
-
 func main() {
-	sort_algorithm.TestAllSort(100000)
-
 }

@@ -52,7 +52,7 @@ import (
 	"tools/arraytools"
 )
 
-const Print bool = false
+const Print bool = true
 
 func TestBubbleSort(length int) {
 	fmt.Println("测试冒泡排序:")
@@ -321,6 +321,34 @@ func TestCocktailSort(length int) {
 	start := time.Now().UnixNano() / 1e6
 
 	CocktailSort(array)
+
+	end := time.Now().UnixNano() / 1e6
+
+	if Print {
+		fmt.Println("排序后:")
+		arraytools.PrintArray(array)
+	}
+
+	fmt.Println("耗时 : ", end-start, "ms")
+
+	fmt.Println("--------------------------------------------------------------------------------------------------")
+
+	fmt.Println()
+}
+
+func TestMonkeySort(length int) {
+	fmt.Println("测试猴子排序:")
+
+	array := arraytools.GenerateArray(length)
+
+	if Print {
+		fmt.Println("排序前:")
+		arraytools.PrintArray(array)
+	}
+
+	start := time.Now().UnixNano() / 1e6
+
+	MonkeySort(array)
 
 	end := time.Now().UnixNano() / 1e6
 
