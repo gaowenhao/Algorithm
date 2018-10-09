@@ -1,7 +1,8 @@
 /*
 -----------------------------------------------------
     Author : 高文豪
-    Github : https://github.com/gaowenhao
+    Github : github.com/gaowenhao
+	Blog   : gaowenhao.cn
 -----------------------------------------------------
 */
 
@@ -11,7 +12,9 @@ package basic_data_struct
 	双向链表简单的增删改查,完全是根据自己的理解码的,并没有经过太多测试,如有疏漏还请指教.
 */
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Person struct {
 	name string
@@ -233,6 +236,21 @@ func (lst *LinkedList) GetSize() int {
 	return lst.size
 }
 
+// 翻转链表, 双向链表翻转实在没啥好说的,单向链表也是循环最好理解
+func (lst *LinkedList) Reverse() {
+	currentNode := lst.firstNode
+	lst.firstNode = lst.lastNode
+	lst.lastNode = currentNode // 首位互换
+
+	// 所有节点的next prev互换
+	for currentNode != nil {
+		next := currentNode.next
+		currentNode.next = currentNode.prev
+		currentNode.prev = next
+		currentNode = next
+	}
+}
+
 //-----------------------------------------------------------
 
 func TestLinkedList() {
@@ -241,10 +259,14 @@ func TestLinkedList() {
 	p2 := &Person{"李四", 18}
 	p3 := &Person{"王老五", 21}
 	ll.Insert(p1)
-	ll.InsertIndex(1, p2)
+	ll.InsertIndex(0, p2)
 	ll.InsertLast(p3)
 
 	ll.Show()
 
-	fmt.Print(ll.Index(p2))
+	fmt.Println("-----------")
+
+	ll.Reverse()
+
+	ll.Show()
 }

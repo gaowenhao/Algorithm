@@ -3,7 +3,8 @@ package btree
 /*
 -----------------------------------------------------
     Author : 高文豪
-    Github : https://github.com/gaowenhao
+    Github : github.com/gaowenhao
+	Blog   : gaowenhao.cn
 -----------------------------------------------------
 */
 

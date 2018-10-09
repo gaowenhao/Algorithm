@@ -1,7 +1,8 @@
 /*
 -----------------------------------------------------
     Author : 高文豪
-    Github : https://github.com/gaowenhao
+    Github : github.com/gaowenhao
+	Blog   : gaowenhao.cn
 -----------------------------------------------------
 */
 
@@ -20,16 +21,15 @@ func HeapSort(array []int) {
 
 // 构建最大堆
 func BuildMaxHeap(array []int, length int) {
-	// >> 1 相当于除以2
-	startIndex := length>>1 - 1
+	startIndex := (length >> 1) - 2 // 深度最高的非叶子节点
 	for x := startIndex; x > -1; x-- {
-		MaxHeapfy(array, length, x)
+		MaxHeapfy(array, length, x) // 构建最大堆
 	}
 }
 
 func MaxHeapfy(array []int, depth int, index int) {
-	leftChildIndex := index << 1
-	rightChildIndex := leftChildIndex + 1
+	leftChildIndex := (index << 1) + 1    // 获取左子
+	rightChildIndex := leftChildIndex + 1 // 获取右子
 
 	largest := index
 

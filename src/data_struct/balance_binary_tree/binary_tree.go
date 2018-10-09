@@ -1,7 +1,8 @@
 /*
 -----------------------------------------------------
     Author : 高文豪
-    Github : https://github.com/gaowenhao
+    Github : github.com/gaowenhao
+	Blog   : gaowenhao.cn
 -----------------------------------------------------
 */
 
@@ -45,13 +46,14 @@ func NewBinaryTree() *BinaryTree {
 func (binaryTree *BinaryTree) BuildBinaryTreeByArray(array []Object, node *BinaryTreeNode, index int) *BinaryTreeNode {
 	var newNode *BinaryTreeNode
 
+	// 节点为空的时候构建跟节点
 	if node == nil {
 		leftIndex := 2*index + 1
 		rightIndex := 2*index + 2
 		newNode = NewBinaryTreeNode(binaryTree.BuildBinaryTreeByArray(array, NewBinaryTreeNode(nil, nil, array[leftIndex]), leftIndex),
 			binaryTree.BuildBinaryTreeByArray(array, NewBinaryTreeNode(nil, nil, array[rightIndex]), rightIndex), array[index])
 		binaryTree.root = newNode
-	} else {
+	} else { // 递归构建节点
 		length := len(array)
 		if index >= length>>1 {
 			return node
